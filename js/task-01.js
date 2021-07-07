@@ -4,5 +4,5 @@ console.log(`В списке ${categoriesEl.childElementCount} категори�
 const itemsEl = document.querySelectorAll('.item');
 itemsEl.forEach(item => {
     console.log('Категория:', item.firstElementChild.textContent);
-    console.log('Количество элементов: ', item.lastElementChild.childElementCount);
+    console.log('Количество элементов:', item.lastElementChild.childElementCount);
 });
