@@ -13,9 +13,13 @@ const images = [
   },
 ];
 
+const imgWidth = (window.innerWidth - (images.length + 1) * 50) / images.length;
+console.log(window.innerWidth)
+const imgHeight = imgWidth / 1.5;
+
 const stringHTML = images.reduce((str, objImg) => 
 str + `<li><img src="${objImg.url}" alt="${objImg.alt}"
- width = "300" height = "200"></li>`, '');
+ width = "${imgWidth}" height = "${imgHeight}"></li>`, '');
 
 const galleryEl = document.querySelector('#gallery');
 galleryEl.insertAdjacentHTML('afterbegin', stringHTML);
