@@ -18,4 +18,8 @@ str + `<li><img src="${objImg.url}" alt="${objImg.alt}"
  width = "300" height = "200"></li>`, '');
 
 const galleryEl = document.querySelector('#gallery');
- galleryEl.insertAdjacentHTML('afterbegin', stringHTML);
+galleryEl.insertAdjacentHTML('afterbegin', stringHTML);
+
+galleryEl.style.listStyle = "none";
+galleryEl.style.display = "flex";
+galleryEl.style.justifyContent = "space-around";
