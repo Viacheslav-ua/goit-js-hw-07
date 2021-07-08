@@ -14,7 +14,6 @@ const images = [
 ];
 
 const imgWidth = (window.innerWidth - (images.length + 1) * 50) / images.length;
-console.log(window.innerWidth)
 const imgHeight = imgWidth / 1.5;
 
 const stringHTML = images.reduce((str, objImg) => 
