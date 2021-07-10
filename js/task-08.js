@@ -1,5 +1,5 @@
 function randomRGB() {
-    return `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}`
+    return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
 }
 
 function createBoxes(amount) {
@@ -10,7 +10,7 @@ function createBoxes(amount) {
         const boxEl = document.createElement('div');
         boxEl.style.width = size + 'px';
         boxEl.style.height = size + 'px';
-        boxEl.style.backgroundColor = `rgb(${randomRGB()})`
+        boxEl.style.backgroundColor = randomRGB();
         boxesFragment.appendChild(boxEl);
         size += 10;
     }
