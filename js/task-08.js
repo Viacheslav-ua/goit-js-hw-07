@@ -17,7 +17,7 @@ function createBoxes(amount) {
     return boxesFragment
 }
 
-function destroyChild(parent) {
+function destroyBoxes(parent) {
     if (parent.children.length === 0) return;
     const countElements = parent.children.length;
     for (let i = 0; i < countElements; i += 1) {
@@ -33,10 +33,10 @@ const refs = {
 };
 
 refs.renderBtn.addEventListener('click', () => {
-    destroyChild(refs.boxes);
+    destroyBoxes(refs.boxes);
     refs.boxes.appendChild(createBoxes(refs.inputQty.value));
 });
 
 refs.destroyBtn.addEventListener('click', () => {
-    destroyChild(refs.boxes);
+    destroyBoxes(refs.boxes);
 });
