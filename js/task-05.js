@@ -4,7 +4,7 @@ const refs = {
 }
 
 refs.nameInput.addEventListener('input', (event) => {
-    event.currentTarget.value
+    event.currentTarget.value.trim() 
         ? refs.nameOutput.textContent = event.currentTarget.value
         : refs.nameOutput.textContent = 'незнакомец';
 });

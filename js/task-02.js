@@ -7,13 +7,11 @@ const ingredients = [
   'Приправы',
 ];
 
-const ingredientsEl = document.querySelector('#ingredients');
-const listEl = new DocumentFragment();
-
-ingredients.forEach(ingredient => {
-  const ingredientEl = document.createElement('li');
-  ingredientEl.textContent = ingredient;
-  listEl.appendChild(ingredientEl);
+const arrList = ingredients.map(ingredient => {
+  const itemEl = document.createElement('li');
+  itemEl.textContent = ingredient;
+  return itemEl;
 });
 
-ingredientsEl.appendChild(listEl);
+const ingredientsEl = document.querySelector('#ingredients');
+ingredientsEl.append(...arrList);

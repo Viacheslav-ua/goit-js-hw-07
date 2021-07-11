@@ -1,30 +1,3 @@
-function randomRGB() {
-    return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
-}
-
-function createBoxes(amount) {
-    let size = 30;
-    const boxesFragment = new DocumentFragment();
-
-    for (let i = 0; i < amount; i += 1) {
-        const boxEl = document.createElement('div');
-        boxEl.style.width = size + 'px';
-        boxEl.style.height = size + 'px';
-        boxEl.style.backgroundColor = randomRGB();
-        boxesFragment.appendChild(boxEl);
-        size += 10;
-    }
-    return boxesFragment
-}
-
-function destroyBoxes(parent) {
-    if (parent.children.length === 0) return;
-    const countElements = parent.children.length;
-    for (let i = 0; i < countElements; i += 1) {
-        parent.removeChild(parent.children[0]);
-    }
-}
-
 const refs = {
     boxes: document.querySelector('#boxes'),
     inputQty: document.querySelector('#controls input'),
@@ -32,11 +5,30 @@ const refs = {
     destroyBtn: document.querySelector('[data-action="destroy"]'),
 };
 
+function randomRGB() {
+    return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+}
+
+function destroyBoxes() {
+    refs.boxes.innerHTML='';
+}
+
+function createBoxes(amount) {
+    let size = 30;
+    const arrBoxes = [];
+    for (let i = 0; i < amount; i += 1) {
+        arrBoxes[i] = document.createElement('div');
+        arrBoxes[i].style.width = size + 'px';
+        arrBoxes[i].style.height = size + 'px';
+        arrBoxes[i].style.backgroundColor = randomRGB();
+        size += 10;
+    }
+    // destroyBoxes();
+    refs.boxes.append(...arrBoxes);
+}
+
 refs.renderBtn.addEventListener('click', () => {
-    destroyBoxes(refs.boxes);
-    refs.boxes.appendChild(createBoxes(refs.inputQty.value));
+    createBoxes(refs.inputQty.value);
 });
 
-refs.destroyBtn.addEventListener('click', () => {
-    destroyBoxes(refs.boxes);
-});
+refs.destroyBtn.addEventListener('click', destroyBoxes);

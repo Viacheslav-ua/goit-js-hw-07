@@ -15,5 +15,5 @@ const onIncrement = () => {
     refsCounter.value.textContent = counterValue;
 }
 
-refsCounter.decrementBtn.addEventListener('click', () => onDecrement());
-refsCounter.incrementBtn.addEventListener('click', () => onIncrement());
+refsCounter.decrementBtn.addEventListener('click', onDecrement);
+refsCounter.incrementBtn.addEventListener('click', onIncrement);
